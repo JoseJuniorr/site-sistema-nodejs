@@ -25,3 +25,11 @@ Mongoose
 Bcryptjs
 
 ### npm install bcryptjs
+
+Connect-flash
+
+### npm install connect-flash
+
+express-session
+
+### npm install express-session

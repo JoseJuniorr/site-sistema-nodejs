@@ -3,11 +3,18 @@ const UserController = {};
 const User = require("../models/User");
 
 UserController.renderRegisterForm = (req, res) => {
-  res.send("formulário de registro");
+  res.render("users/register", { layout: "login" });
+};
+
+UserController.register = (req, res) => {
+  const errors = [];
+
+  const { name, email, password, confirm_password } = req.body;
+  console.log(req.body);
 };
 
 UserController.renderLoginForm = (req, res) => {
-  res.send("formulario de login");
+  res.render("users/login", { layout: "login" });
 };
 
 module.exports = UserController;
