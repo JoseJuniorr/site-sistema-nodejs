@@ -1,0 +1,14 @@
+body {
+  background: rgb(121, 118, 118);
+}
+
+.descr-top {
+  background-image: url("/images/background-azul.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0rem;
+  margin-bottom: 0rem;
+  padding: 90px;
+  color: #fff;
+}

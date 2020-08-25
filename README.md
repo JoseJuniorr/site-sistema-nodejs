@@ -1,0 +1,27 @@
+Iniciando o projeto
+
+### npm init
+
+Express js
+
+### npm install express --save
+
+Dependencias de desenvolvimento
+
+### npm install dotenv nodemon npm-check-updates -D
+
+Handlebars
+
+### npm install express-handlebars --save
+
+### npm install handlebars
+
+### npm install @handlebars/allow-prototype-access
+
+Mongoose
+
+### npm install mongoose
+
+Bcryptjs
+
+### npm install bcryptjs

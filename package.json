@@ -1,0 +1,26 @@
+{
+  "name": "site-sistema-nodejs",
+  "version": "1.0.0",
+  "description": "Sistema site com node js, express js, handlebars",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "handlebars": "^4.7.6",
+    "mongoose": "^5.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4",
+    "npm-check-updates": "^7.1.1"
+  }
+}
