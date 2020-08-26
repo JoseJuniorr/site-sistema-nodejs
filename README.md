@@ -33,3 +33,8 @@ Connect-flash
 express-session
 
 ### npm install express-session
+
+Passport
+
+### npm install passport
+### npm install passport-local --save

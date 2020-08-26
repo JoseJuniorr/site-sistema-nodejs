@@ -8,6 +8,8 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+require("./config/auth");
 
 //Inicialização
 const app = express();
@@ -33,8 +35,10 @@ app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "public")));
 
 //Middlewares
+//BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+//Express Session
 app.use(
   session({
     secret: "secret_session",
@@ -42,7 +46,11 @@ app.use(
     saveUninitialized: true,
   })
 );
+//flash messages
 app.use(flash());
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Rotas
 app.use(require("./routes/home.routes"));
