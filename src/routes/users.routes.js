@@ -5,9 +5,9 @@ const {
   renderLoginForm,
   login,
   logout,
-} = require("../controllers/User.controller");
+} = require("../controllers/UserController");
 
-const { isAutheticated } = require("../helpers/authenticate");
+
 
 // router.get("/users/register", renderRegisterForm);
 

@@ -1,6 +1,9 @@
 <form action="/users/login" class="form-login text-center" method="POST">
-    <img class="mb-4" src="" alt="logo" width="72" height="72">
+    {{!-- <img class="mb-4" src="" alt="logo" width="72" height="72"> --}}
+    <i class="fas fa-user fa-3x"></i>
     <h1 class="h3 mb-3 font-weight-normal">Área Restrita</h1>
+    {{>_msg}}
+    {{>_errors}}
     <div class="form-group">
         <label>Usuário</label>
         <input type="text" name="email" class="form-control" placeholder="Digite o usuário">

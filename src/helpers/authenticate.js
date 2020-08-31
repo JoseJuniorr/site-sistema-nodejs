@@ -4,7 +4,7 @@ authenticate.isAuthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    req.flash("error_msg", "É necessário realizar o login!");
+    req.flash("error_msg", "Authentication required!");
     res.redirect("/users/login");
   }
 };
