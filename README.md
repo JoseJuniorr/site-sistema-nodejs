@@ -38,3 +38,7 @@ Passport
 
 ### npm install passport
 ### npm install passport-local --save
+
+Mongan: HTTP request logger middleware for node.js
+
+### npm i morgan

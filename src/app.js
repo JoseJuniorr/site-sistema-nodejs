@@ -6,9 +6,12 @@ const {
 } = require("@handlebars/allow-prototype-access");
 const bodyParser = require("body-parser");
 const path = require("path");
+const morgan = require("morgan");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
+
+//passport config
 require("./config/auth");
 
 //Inicialização
@@ -34,10 +37,8 @@ app.set("view engine", "handlebars");
 //Arquivos estáticos
 app.use(express.static(path.join(__dirname, "public")));
 
-//Middlewares
-//BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+//morgan
+app.use(morgan("dev"));
 //Express Session
 app.use(
   session({
@@ -48,19 +49,28 @@ app.use(
 );
 //flash messages
 app.use(flash());
+//Middlewares
+//variaveis globais
+app.use((req, res, next) => {
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  res.locals.user = req.user || null;
+  next();
+});
+//BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 //passport
 app.use(passport.initialize());
 app.use(passport.session());
 
 //Rotas
 app.use(require("./routes/home.routes"));
+app.use(require("./routes/sobre.routes"));
 app.use(require("./routes/users.routes"));
-
-//variaveis globais
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash("success_msg");
-  res.locals.error_msg = req.flash("error_msg");
-  next();
-});
+// app.use(require("./routes/add_bd.routes"));
+app.use(require("./routes/adm.routes"));
 
 module.exports = app;
