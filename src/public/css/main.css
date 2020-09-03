@@ -1,16 +1,14 @@
 body {
-  background: rgb(246, 250, 252);
+  background: rgb(255, 255, 255);
   margin-top: 3.9rem;
 }
 
-
 a:hover {
   text-decoration: underline;
-
 }
 
 .custom-navbar {
-  background-color: rgb(216, 218, 224);
+  background-color: whitesmoke;
   font-weight: 500;
   line-height: 1.8rem;
 }
@@ -80,4 +78,36 @@ a:hover {
   left: 8px;
 }
 
+@media only screen and (min-width: 900px) {
+  .card {
+    border: none;
+  }
+  .card-home {
+    max-width: 20rem;
+    padding-right: 1em;
+    padding-left: 1em;
+  }
+  .card-left {
+    float: right;
+  }
+  .dif-icon {
+    max-width: 90px;
+    margin-right: 10px;
+  }
+}
 
+@media only screen and (max-width: 899px) {
+  .card {
+    border: none;
+  }
+  .card-home {
+    max-width: 20rem;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+  }
+  .dif-icon {
+    width: 20%;
+    margin-right: 10px;
+  }
+  
+}
