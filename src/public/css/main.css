@@ -1,9 +1,29 @@
 body {
-  background: rgb(255, 255, 255);
+  background: rgb(246, 250, 252);
+  margin-top: 3.9rem;
 }
 
-.descr-top {
-  background-image: url("/images/background-azul.gif");
+
+a:hover {
+  text-decoration: underline;
+
+}
+
+.custom-navbar {
+  background-color: rgb(216, 218, 224);
+  font-weight: 500;
+  line-height: 1.8rem;
+}
+.custom-navbar a {
+  color: rgb(15, 12, 12);
+  font-weight: 500;
+}
+.custom-navbar a:hover {
+  text-decoration: underline;
+}
+
+/* .descr-top {
+  background-image: url("/images/topo_home.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,5 +31,53 @@ body {
   margin-bottom: 0rem;
   padding: 90px;
   color: #fff;
+} */
+
+.animated-icon3 span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
 }
+
+.animated-icon3 span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.animated-icon3 span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.animated-icon3.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0px;
+  left: 8px;
+}
+
+.animated-icon3.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.animated-icon3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 21px;
+  left: 8px;
+}
+
 
