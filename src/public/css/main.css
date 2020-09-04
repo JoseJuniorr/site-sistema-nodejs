@@ -1,6 +1,6 @@
 body {
-  background: rgb(255, 255, 255);
-  margin-top: 3.9rem;
+  background: rgb(254, 255, 255); 
+   margin-top: 4rem;
 }
 
 a:hover {
@@ -38,9 +38,9 @@ a:hover {
     border: none;
   }
   .card-home {
-    max-width: 20rem;
-    padding-right: 1em;
-    padding-left: 1em;
+    max-width: 16rem;
+    /* padding-right: 1em;
+    padding-left: 1em; */
   }
   .card-left {
     float: right;

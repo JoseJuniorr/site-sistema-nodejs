@@ -3,8 +3,18 @@ const PostController = {};
 const PostModel = require("../models/Posts");
 
 //renderiza pg principal dos posts
-PostController.renderIndexPage = (req, res) => {
-  res.render("posts/posts");
+PostController.renderIndexPage = async (req, res) => {
+  const allPosts = await PostModel.find({}).sort({
+    createdAt: "desc",
+  });
+  res.render("posts/posts", { allPosts });
+};
+
+PostController.renderListPosts = async (req, res) => {
+  const posts = await PostModel.find({}).sort({
+    createdAt: "desc",
+  });
+  res.render("posts/list-posts", { layout: "adm", posts });
 };
 
 //renderiza form para cadastro no adm

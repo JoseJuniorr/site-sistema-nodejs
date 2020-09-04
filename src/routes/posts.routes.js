@@ -5,12 +5,17 @@ const { isAuthenticated } = require("../helpers/authenticate");
 
 const {
   renderIndexPage,
+  renderListPosts,
   renderFormNewPost,
   newPost,
 } = require("../controllers/PostsController");
 
 //Index posts
 router.get("/", renderIndexPage);
+
+//listar posts no adm
+
+router.get("/list-posts", renderListPosts);
 
 //formulário de cadastro de post
 router.get("/new-post", isAuthenticated, renderFormNewPost);
