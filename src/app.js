@@ -70,7 +70,7 @@ app.use(passport.session());
 // app.use(require("./routes/add_bd.routes"));
 app.use(require("./routes/home.routes"));
 app.use(require("./routes/sobre.routes"));
-app.use(require("./routes/posts.routes"));
+app.use('/posts', require("./routes/posts.routes"));
 
 app.use(require("./routes/users.routes"));
 app.use(require("./routes/adm.routes"));
