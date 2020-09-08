@@ -1,36 +1,33 @@
-<div class="container">
-    <div class="mt-4 p-5">
+<div class="container py-5">
+
+    <div class="row ">
         {{#each allPosts}}
-        <div class="card mb-4">
-            <div class="card-header">
-                <h3>{{title}}</h3>
-            </div>
-            <div class="card-body">
-                <p>{{description}}</p>
+        <div class="col-md-4 mb-4">
+
+            <div class="card mb-5 shadow-sm">
+                <!--Card image-->
+                <div class="view">
+                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
+                        class="card-img-top" alt="photo">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-header">
+                    <h4 class="text-center py-4">{{title}}</h4>
+
+                </div>
+                <div class="card-body text-center">
+                    {{description}}
+                </div>
+                <a href="/posts/post/{{id}}"><button class="btn btn-outline-primary ">ler mais</button></a>
             </div>
 
         </div>
+        {{else}}
+        <h4>Não há posts para exibir!</h4>
+
         {{/each}}
     </div>
 
-
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>

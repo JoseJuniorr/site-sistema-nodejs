@@ -1,13 +1,22 @@
 const { Router } = require("express");
 const router = Router();
 
+const multer = require("multer");
+const upload = multer({ dest: "src/uploads" });
+const { errorHandler } = require("../middleware/errorHandler");
+
 const { isAuthenticated } = require("../helpers/authenticate");
 
 const {
   renderIndexPage,
+  showPost,
   renderListPosts,
   renderFormNewPost,
   newPost,
+  editPost,
+  renderEditPost,
+  updatePost,
+  deletePost,
 } = require("../controllers/PostsController");
 
 //Index posts
@@ -21,18 +30,23 @@ router.get("/list-posts", renderListPosts);
 router.get("/new-post", isAuthenticated, renderFormNewPost);
 
 //cadastrar
-router.post("/create-post", isAuthenticated, newPost);
+router.post(
+  "/create-post",
+  upload.array("images", 4),
+  isAuthenticated,
+  newPost
+);
 
-//show
-router.get("/post/:id", (req, res) => {});
+//show page post
+router.get("/post/:id", showPost);
 
 //form edit
-router.get("/post/:id/edit", (req, res) => {});
+router.get("/post/:id/edit", renderEditPost);
 
 //update
-router.put("/post/:id", (req, res) => {});
+router.put("/post/:id", updatePost);
 
 //delete
-router.delete("/post/:id", (req, res) => {});
+router.delete("/post/:id", deletePost);
 
 module.exports = router;

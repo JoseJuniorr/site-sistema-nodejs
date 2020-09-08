@@ -5,11 +5,15 @@ const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
 const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
 const path = require("path");
+const favicon = require("serve-favicon");
 const morgan = require("morgan");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
+
+require("dotenv").config();
 
 //passport config
 require("./config/auth");
@@ -49,7 +53,18 @@ app.use(
 );
 //flash messages
 app.use(flash());
+
 //Middlewares
+app.use(favicon(path.join(__dirname, "public", "/images/favicon/favicon.ico")));
+app.use(methodOverride("_method"));
+//BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 //variaveis globais
 app.use((req, res, next) => {
   res.locals.success_msg = req.flash("success_msg");
@@ -58,13 +73,6 @@ app.use((req, res, next) => {
   res.locals.user = req.user || null;
   next();
 });
-//BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-//passport
-app.use(passport.initialize());
-app.use(passport.session());
 
 //Rotas
 // app.use(require("./routes/add_bd.routes"));
@@ -76,5 +84,6 @@ app.use("/posts", require("./routes/posts.routes"));
 
 app.use(require("./routes/users.routes"));
 app.use(require("./routes/adm.routes"));
+app.use(require("./routes/error.routes"));
 
 module.exports = app;

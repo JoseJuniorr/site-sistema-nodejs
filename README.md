@@ -37,8 +37,17 @@ express-session
 Passport
 
 ### npm install passport
+
 ### npm install passport-local --save
 
 Mongan: HTTP request logger middleware for node.js
 
 ### npm i morgan
+
+### npm install serve-favicon
+
+### npm install method-override --save
+
+upload images
+
+### npm install --save cloudinary multer
