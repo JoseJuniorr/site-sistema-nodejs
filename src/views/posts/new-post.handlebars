@@ -31,10 +31,13 @@
                     placeholder="Conteúdo da publicação"></textarea>
             </div>
 
-            <div class="input-group col-md-6">
+            <div class="input-group col-md-6 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" accept="images/*" name="images" multiple />
-                    <label class="custom-file-label" for="inputGroupFile04">Escolher arquivo</label>
+                    <input type="file"  accept="images/*" name="images" multiple>
+                    {{!-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> --}}
                 </div>
 
             </div>

@@ -5,6 +5,14 @@
 
     <p>{{post.content}}</p>
 
+    <div>
+        {{#each post.images}}
+        <img src="{{this.url}}" alt="post image" width="200px">
+
+        {{/each}}
+
+    </div>
+
     <span>Atualizado em: {{post.updatedAt}}</span>
 
 </div>

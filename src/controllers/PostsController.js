@@ -1,12 +1,12 @@
 const PostController = {};
 const PostModel = require("../models/Posts");
 
-// const cloudinary = require("cloudinary");
-// cloudinary.config({
-//   cloud_name: `${process.env.CLOUD_NAME}`,
-//   api_key: `${process.env.API_KEY}`,
-//   api_secret: process.env.CLOUDINARY_SECRET,
-// });
+const cloudinary = require("cloudinary");
+cloudinary.config({
+  cloud_name: `${process.env.CLOUD_NAME}`,
+  api_key: `${process.env.API_KEY}`,
+  api_secret: process.env.CLOUDINARY_SECRET,
+});
 
 //renderiza pg principal lista dos posts
 PostController.renderIndexPage = async (req, res) => {
@@ -36,24 +36,24 @@ PostController.renderFormNewPost = (req, res) => {
 };
 
 //new post
-PostController.newPost = async (req, res) => {
-  // req.body.newPost.images = [];
+PostController.createPost = async (req, res, next) => {
+  req.body.images = [];
 
-  // for (const file of req.files) {
-  //   const image = await cloudinary.v2.uploader.upload(file.path);
-  //   req.body.newPost.images.push({
-  //     url: image.secure_url,
-  //     public_id: image.public_id,
-  //   });
-  // }
+  for (const file of req.files) {
+    let image = cloudinary.v2.uploader.upload(file.path);
+    req.body.images.push({
+      url: (await image).secure_url,
+      public_id: (await image).public_id,
+    });
+  }
 
-  const { title, description, content } = req.body;
-  // console.log(req.body);
+  const { title, description, content, images } = req.body;
 
   const newPost = new PostModel({
     title: title,
     description: description,
     content: content,
+    images: images,
   });
 
   await newPost

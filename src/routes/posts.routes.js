@@ -2,8 +2,7 @@ const { Router } = require("express");
 const router = Router();
 
 const multer = require("multer");
-const upload = multer({ dest: "src/uploads" });
-const { errorHandler } = require("../middleware/errorHandler");
+const upload = multer({ dest: "uploads/" });
 
 const { isAuthenticated } = require("../helpers/authenticate");
 
@@ -12,7 +11,7 @@ const {
   showPost,
   renderListPosts,
   renderFormNewPost,
-  newPost,
+  createPost,
   editPost,
   renderEditPost,
   updatePost,
@@ -34,7 +33,7 @@ router.post(
   "/create-post",
   upload.array("images", 4),
   isAuthenticated,
-  newPost
+  createPost
 );
 
 //show page post
