@@ -75,6 +75,10 @@ PostController.renderEditPost = async (req, res) => {
 };
 
 PostController.updatePost = async (req, res) => {
+  //handle any deletion of existing images
+
+  //handle upload of any new images
+
   const { title, description, content } = req.body;
 
   await PostModel.findByIdAndUpdate(req.params.id, {
