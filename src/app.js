@@ -4,6 +4,8 @@ const Handlebars = require("handlebars");
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
+const MomentHandler = require("handlebars.moment");
+MomentHandler.registerHelpers(Handlebars);
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const path = require("path");
@@ -71,6 +73,7 @@ app.use((req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   res.locals.user = req.user || null;
+  
   next();
 });
 

@@ -1,33 +1,48 @@
 <div class="container py-5">
 
+
+
     <div class="row ">
         {{#each allPosts}}
-        <div class="col-md-4 mb-4">
+        <!-- Card -->
+        <div class="card card-cascade wider reverse">
 
-            <div class="card mb-5 shadow-sm">
-                <!--Card image-->
-                <div class="view">
-                    <img src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-                        class="card-img-top" alt="photo">
-                    <a href="#">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-header">
-                    <h4 class="text-center py-4">{{title}}</h4>
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
 
-                </div>
-                <div class="card-body text-center">
-                    {{description}}
-                </div>
-                <a href="/posts/post/{{id}}"><button class="btn btn-outline-primary ">ler mais</button></a>
+                <a href="/posts/post/{{slug}}/{{id}}">
+                    <img class="card-img-top" src="{{images.0.url}}"
+                        alt="Card image cap">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
             </div>
 
+            <!-- Card content -->
+            <div class="card-body card-body-cascade text-center">
+
+                <!-- Title -->
+                <h4 class="card-title"><strong>{{title}}</strong></h4>
+                <!-- Subtitle -->
+
+                <!-- Text -->
+                <p class="card-text">{{description}}
+                </p>
+                <div class="">
+                    <li class="list-inline-item pr-2 "><i class="far fa-clock pr-1"></i>{{moment}}</li>
+                    
+                </div>
+
+                <a href="/posts/post/{{slug}}/{{id}}"><button class="btn btn-primary">Ler mais</button></a>
+
+
+            </div>
+
+            {{else}}
+            <h4>Não há posts para exibir!</h4>
+
+            {{/each}}
         </div>
-        {{else}}
-        <h4>Não há posts para exibir!</h4>
 
-        {{/each}}
+
+
     </div>
-
-</div>

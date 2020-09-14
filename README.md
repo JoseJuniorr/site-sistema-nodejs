@@ -51,3 +51,10 @@ Mongan: HTTP request logger middleware for node.js
 upload images
 
 ### npm install --save cloudinary multer
+
+format date moment js
+
+### npm install moment --save
+
+
+### npm install mongoose-url-slugs

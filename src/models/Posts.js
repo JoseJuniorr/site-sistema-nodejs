@@ -1,11 +1,16 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const slug = require("mongoose-url-slugs");
 
 const PostSchema = new Schema(
   {
     title: {
       type: String,
       required: true,
+      trim: true,
     },
+    slug: { type: String, slug: "title" },
     description: {
       type: String,
       required: true,
@@ -24,4 +29,6 @@ const PostSchema = new Schema(
   }
 );
 
-module.exports = model("Posts", PostSchema);
+PostSchema.plugin(slug("title"));
+
+module.exports = mongoose.model("Posts", PostSchema);

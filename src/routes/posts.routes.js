@@ -12,7 +12,7 @@ const {
   renderListPosts,
   renderFormNewPost,
   createPost,
-  editPost,
+ 
   renderEditPost,
   updatePost,
   deletePost,
@@ -37,10 +37,10 @@ router.post(
 );
 
 //show page post
-router.get("/post/:id", showPost);
+router.get("/post/:slug/:id", showPost);
 
 //form edit
-router.get("/post/:id/edit", renderEditPost);
+router.get("/post/:id", renderEditPost);
 
 //update
 router.put("/post/:id", updatePost);

@@ -1,18 +1,21 @@
 <div class="container p-5">
     <h1>{{post.title}}</h1>
 
-    <h6>{{post.description}}</h6>
+    <p class="lead"> {{post.description}}</p>
 
-    <p>{{post.content}}</p>
+    <p class="">{{post.content}}</p>
 
-    <div>
+    <div class="mt-4">
         {{#each post.images}}
-        <img src="{{this.url}}" alt="post image" width="200px">
+        <img src="{{this.url}}" alt="post image" class="img-fluid box-shadow-5 mb-5"  >
 
         {{/each}}
 
     </div>
+    <div class="mt-3">
+        <span>Criado em: {{moment}} </span><br>
+        <span>Atualizado em: {{post.updatedAt}} </span>
+    </div>
 
-    <span>Atualizado em: {{post.updatedAt}}</span>
 
 </div>
