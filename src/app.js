@@ -4,8 +4,6 @@ const Handlebars = require("handlebars");
 const {
   allowInsecurePrototypeAccess,
 } = require("@handlebars/allow-prototype-access");
-const MomentHandler = require("handlebars.moment");
-MomentHandler.registerHelpers(Handlebars);
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const path = require("path");
@@ -14,6 +12,8 @@ const morgan = require("morgan");
 const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
+
+const moment = require("moment");
 
 require("dotenv").config();
 
@@ -36,6 +36,12 @@ app.engine(
   handlebars({
     defaultLayout: "main",
     handlebars: allowInsecurePrototypeAccess(Handlebars),
+    helpers: {
+      formatDate: function (dateString) {
+        moment.locale("pt-br");
+        return moment(dateString).format("LLL");
+      },
+    },
   })
 );
 app.set("view engine", "handlebars");
@@ -73,7 +79,7 @@ app.use((req, res, next) => {
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
   res.locals.user = req.user || null;
-  
+
   next();
 });
 

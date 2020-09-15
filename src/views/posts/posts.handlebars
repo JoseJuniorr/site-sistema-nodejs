@@ -1,48 +1,51 @@
 <div class="container py-5">
-
-
-
-    <div class="row ">
+    <div class="row">
         {{#each allPosts}}
-        <!-- Card -->
-        <div class="card card-cascade wider reverse">
+        {{!-- Grid Column --}}
+        <div class="col-sm-4 mb-4">
 
-            <!-- Card image -->
-            <div class="view view-cascade overlay">
+            <!-- Card -->
+            <div class="card ">
 
-                <a href="/posts/post/{{slug}}/{{id}}">
-                    <img class="card-img-top" src="{{images.0.url}}"
-                        alt="Card image cap">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
-            </div>
+                <!-- Card image -->
+                <div class="view overlay">
 
-            <!-- Card content -->
-            <div class="card-body card-body-cascade text-center">
-
-                <!-- Title -->
-                <h4 class="card-title"><strong>{{title}}</strong></h4>
-                <!-- Subtitle -->
-
-                <!-- Text -->
-                <p class="card-text">{{description}}
-                </p>
-                <div class="">
-                    <li class="list-inline-item pr-2 "><i class="far fa-clock pr-1"></i>{{moment}}</li>
-                    
+                    <a href="/posts/post/{{slug}}/{{id}}">
+                        <img class="card-img-top" src="{{images.0.url}}" alt="Card image cap">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
                 </div>
 
-                <a href="/posts/post/{{slug}}/{{id}}"><button class="btn btn-primary">Ler mais</button></a>
+                <!-- Card content -->
+                <div class="card-body  text-center">
+
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>{{title}}</strong></h4>
+                    <!-- Subtitle -->
+
+                    <!-- Text -->
+                    <p class="card-text">{{description}}
+                    </p>
+                    <div class="">
+                        <li class="list-inline-item pr-2 "><i
+                                class="far fa-clock pr-1"></i><span>{{formatDate post.createdAt}}</span></li>
+
+                    </div>
+
+                    <a href="/posts/post/{{slug}}/{{id}}"><button class="btn btn-primary">Ler mais</button></a>
+
+
+                </div>
 
 
             </div>
 
-            {{else}}
-            <h4>Não há posts para exibir!</h4>
-
-            {{/each}}
         </div>
+        {{else}}
+        <h4>Não há posts para exibir!</h4>
 
+        {{/each}}
 
 
     </div>
+</div>
