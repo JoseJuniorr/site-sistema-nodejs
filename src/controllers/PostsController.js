@@ -75,13 +75,47 @@ PostController.renderEditPost = async (req, res) => {
 };
 
 PostController.updatePost = async (req, res) => {
-  const { title, description, content } = req.body;
+  //find the post by id
+  const post = await PostModel.findById(req.params.id);
 
-  await PostModel.findByIdAndUpdate(req.params.id, {
-    title,
-    description,
-    content,
-  })
+  //check if there's any images for deletion
+  if (req.body.deleteImages && req.body.deleteImages.length) {
+    //assign deleteImages from req.body to its own variable
+    const deleteImages = req.body.deleteImages;
+    //loop over deleteImages
+    for (const public_id of deleteImages) {
+      //delete images from cloudnary
+      await cloudinary.v2.uploader.destroy(public_id);
+      //delete image from post.images
+      for (const image of post.images) {
+        if (image.public_id === public_id) {
+          const index = post.images.indexOf(image);
+          post.images.splice(index, 1);
+        }
+      }
+    }
+  }
+  //check if there are any new images for upload
+  if (req.files) {
+    //upload images
+    for (const file of req.files) {
+      let image = cloudinary.v2.uploader.upload(file.path);
+      //add images to post.images array
+      post.images.push({
+        url: (await image).secure_url,
+        public_id: (await image).public_id,
+      });
+    }
+  }
+  //update the post with new any new porperties
+  post.title = req.body.title;
+  post.description = req.body.description;
+  post.content = req.body.content;
+  // const { title, description, content } = req.body;
+
+  //save the updated post into the db
+  post
+    .save()
     .then(() => {
       req.flash("success_msg", "Post editado com sucesso!");
       res.redirect("/posts/list-posts");

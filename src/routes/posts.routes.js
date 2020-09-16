@@ -12,7 +12,7 @@ const {
   renderListPosts,
   renderFormNewPost,
   createPost,
- 
+
   renderEditPost,
   updatePost,
   deletePost,
@@ -43,7 +43,7 @@ router.get("/post/:slug/:id", showPost);
 router.get("/post/:id", renderEditPost);
 
 //update
-router.put("/post/:id", updatePost);
+router.put("/post/:id", upload.array("images", 4), updatePost);
 
 //delete
 router.delete("/post/:id", deletePost);

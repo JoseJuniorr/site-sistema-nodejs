@@ -21,7 +21,7 @@
             <tr>
                 <th scope="row">{{id}}</th>
                 <td>{{title}}</td>
-                <td>{{updatedAt}}</td>
+                <td>{{formatDate updatedAt}}</td>
                 <td>
                     <a href="/posts/post/{{id}}"><button class="btn btn-outline-primary">Editar</button></a>
                 </td>
@@ -56,7 +56,7 @@
             </div>
         </div>
         {{else}}
-        <h4>Não há notas para exibir!</h4>
+        <h4>Não há publicações para exibir!</h4>
         {{/each}}
     </table>
 

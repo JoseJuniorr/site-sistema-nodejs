@@ -90,6 +90,7 @@ app.use(require("./routes/sobre.routes"));
 app.use(require("./routes/contato.routes"));
 
 app.use("/posts", require("./routes/posts.routes"));
+app.use("/categorias", require("./routes/categorias.routes"));
 
 app.use(require("./routes/users.routes"));
 app.use(require("./routes/adm.routes"));

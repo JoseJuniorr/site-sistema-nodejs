@@ -14,8 +14,9 @@
             </a>
         </div>
         <hr>
-        
-        <form action="/posts/post/{{post.id}}?_method=PUT" method="POST">
+
+        <form action="/posts/post/{{post.id}}?_method=PUT" method="POST" id="postEditForm"
+            enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PUT">
 
             <div class="form-group col-md-6">
@@ -31,22 +32,23 @@
                 <textarea name="content" class="form-control">{{post.content}}</textarea>
             </div>
 
-            <div class="mb-3">
-                {{#each post.images}}
-                <img src="{{this.url}}" alt="Images upload" width="200px">
-                {{/each}}
-            </div>
+            <div class="input-group col-md-6 mb-3">
 
-            <div class="input-group col-md-6">
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile04"
-                        aria-describedby="inputGroupFileAddon04">
+                    <input type="file" class="custom-file-input" id="imageUpload" accept="images/*" name="images"
+                        multiple>
                     <label class="custom-file-label" for="inputGroupFile04">Escolher arquivo</label>
                 </div>
 
             </div>
-
-
+            <div class="mb-3">
+                {{#each post.images}}
+                <img src="{{this.url}}" alt="Images upload" width="200px">
+                <label for="image{{@index}}">Delete?</label>
+                <input type="checkbox" name="deleteImages[]" class="imageDeleteCheckbox" id="image{{@index}}"
+                    value="{{this.public_id}}">
+                {{/each}}
+            </div>
 
             <p>
                 <span class="text-danger">* </span>Campo obrigatório
@@ -56,3 +58,29 @@
     </div>
 </div>
 </div>
+
+<script>
+    //find post edit form
+    let postEditForm = document.getElementById("postEditForm");
+    //add submit listener to post edit form
+    postEditForm.addEventListener('submit', function (event) {
+
+        //find length of uploaded images
+        let imageUploads = document.getElementById("imageUpload").files.length;
+        //find total number of existing images
+        let existingImgs = document.querySelectorAll(".imageDeleteCheckbox").length;
+        //find total of number of essentials deletions
+        let imgDeletions = document.querySelectorAll(".imageDeleteCheckbox:checked").length;
+
+        //figure out if the form can be submited or not
+        let newTotal = existingImgs - imgDeletions + imageUploads;
+
+        if (newTotal > 4) {
+            event.preventDefault();
+            let removalAmt = newTotal - 4;
+            alert(`You need to remove at least ${removalAmt} images${removalAmt === 1 ? '' : 's'}!`);
+        }
+    });
+
+
+</script>
