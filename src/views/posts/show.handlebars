@@ -5,13 +5,55 @@
 
     <p class="">{{post.content}}</p>
 
-    <div class="mt-4">
+    {{!-- <div class="mt-4">
         {{#each post.images}}
         <img src="{{this.url}}" alt="post image" class="img-fluid box-shadow-5 mb-5">
 
         {{/each}}
 
+    </div> --}}
+    <style>
+        .carousel-image {
+
+            max-height: 580px;
+
+        }
+    </style>
+
+    <div id="carouselPost" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {{#each post.images}}
+            {{#if @first}}
+            <div class="carousel-image carousel-item active">
+                <img class="d-block w-100" src="{{this.url}}">
+            </div>
+            {{else}}
+            <div class="carousel-image carousel-item">
+                <img class="d-block w-100" src="{{this.url}}">
+            </div>
+            {{/if}}
+            {{/each}}
+            <a class="carousel-control-prev" href="#carouselPost" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselPost" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+
+
+        </div>
     </div>
+
+    <script>
+        $('.carousel').carousel({
+            interval: 4000,
+            pause: "false",
+            wrap: false
+        });
+    </script>
     <div class="mt-3">
         <span>Atualizado em: <strong>{{formatDate post.updatedAt}}</strong> </span><br>
         <span>Criado em: <strong>{{formatDate post.createdAt}}</strong> </span>
