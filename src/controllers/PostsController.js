@@ -127,7 +127,13 @@ PostController.updatePost = async (req, res) => {
 };
 
 PostController.deletePost = async (req, res) => {
-  await PostModel.findByIdAndDelete(req.params.id)
+  const post = await PostModel.findById(req.params.id);
+  for (const image of post.images) {
+    await cloudinary.v2.uploader.destroy(image.public_id);
+  }
+
+  post
+    .remove()
     .then(() => {
       req.flash("success_msg", "Post excluído com sucesso!");
       res.redirect("/posts/list-posts");
