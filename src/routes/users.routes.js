@@ -7,8 +7,6 @@ const {
   logout,
 } = require("../controllers/UserController");
 
-
-
 // router.get("/users/register", renderRegisterForm);
 
 // router.post("/users/register", register);

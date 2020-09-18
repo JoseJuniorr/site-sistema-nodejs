@@ -1,14 +1,22 @@
 const { Router } = require("express");
 const router = Router();
 
+const {
+  renderListCategorias,
+  renderFormAddCategorias,
+  createCategoria,
+  renderFormEditCategoria,
+} = require("../controllers/CategoriasController");
+
 const { isAuthenticated } = require("../helpers/authenticate");
 
-router.get("/list-categorias", isAuthenticated, (req, res) => {
-  res.render("categorias/list-categorias", { layout: "adm" });
-});
+//render lista de categorias no adm
+router.get("/list-categorias", isAuthenticated, renderListCategorias);
+//render formulário add categorias
+router.get("/add-categorias", isAuthenticated, renderFormAddCategorias);
+//rota para criar a categoria
+router.post("/create-categoria", isAuthenticated, createCategoria);
 
-router.get("/add-categorias", isAuthenticated, (req, res) => {
-  res.render("categorias/add-categorias", { layout: "adm" });
-});
+router.get("/edit-categoria/:id", isAuthenticated, renderFormEditCategoria);
 
 module.exports = router;

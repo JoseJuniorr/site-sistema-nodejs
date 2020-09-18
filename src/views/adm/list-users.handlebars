@@ -1,6 +1,6 @@
 <div class="container py-4">
-    <h2>Lista de categorias do site</h2>
-    <a href="/categorias/add-categorias"><button class="btn btn-primary mb-4 "> Nova Categoria</button></a>
+    <h2>Lista de usuários do site</h2>
+    <a href="#"><button class="btn btn-primary mb-4 ">Cadastrar usuário</button></a>
     <hr>
 
     <table class="table table-striped">
@@ -8,22 +8,24 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Nome</th>
-                <th scope="col">slug</th>
-                <th scope="col">Atualizado em</th>
+                <th scope="col">email</th>
+                <th scope="col">Data de cadastro</th>
+                <th scope="col">Tipo</th>
+
                 <th scope="col">Ações</th>
 
             </tr>
         </thead>
         <tbody>
-            {{#each categorias}}
+            {{#each users}}
             <tr>
                 <th scope="row">{{id}}</th>
-                <td>{{title}}</td>
-                <td>{{slug}}</td>
-                <td>{{formatDate updatedAt}}</td>
+                <td>{{name}}</td>
+                <td>{{email}}</td>
+                <td>{{formatDate createdAt}}</td>
+                <td>admin-issue</td>
                 <td>
-                    <a href="/categorias/edit-categoria/{{id}}"><button
-                            class="btn btn-outline-primary">Editar</button></a>
+                    <a href="#"><button class="btn btn-outline-primary">Editar</button></a>
                 </td>
                 <td> <button type="submit" class="btn btn-outline-danger" data-toggle="modal"
                         data-target="#delete-categoria">Excluir</button>
@@ -57,5 +59,6 @@
         </div>
         {{/each}}
     </table>
+
 
 </div>

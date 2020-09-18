@@ -2,7 +2,7 @@
     <div class="list-group-item">
         <div class="d-flex">
             <div class="mr-auto p-2">
-                <h2 class="display-4 titulo">Nova Categoria</h2>
+                <h2 class="display-4 titulo">Editar Categoria</h2>
                 {{>_msg}}
             </div>
             <a href="/categorias/list-categorias">
@@ -15,28 +15,19 @@
         </div>
         <hr>
 
-        {{!-- Formulário --}}
-        <form action="/categorias/create-categoria" method="POST">
+        <form action="" method="POST">
+
+
             <div class="form-group col-md-6">
                 <label><span class="text-danger">*</span> Título</label>
-                <input name="title" type="text" class="form-control" id="title" placeholder="Título da categoria">
-
-
+                <input name="title" type="text" class="form-control" value="{{categorias.title}}">
             </div>
 
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
             <button type="submit" class="btn btn-primary">Salvar</button>
-
-
-
-
-
-
-
-
         </form>
-
-
-
-
-
     </div>
+</div>
+</div>
