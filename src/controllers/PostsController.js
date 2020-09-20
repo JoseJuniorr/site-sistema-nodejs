@@ -1,12 +1,8 @@
 const PostController = {};
 const PostModel = require("../models/Posts");
+const Categoria = require("../models/Categoria");
 
-const cloudinary = require("cloudinary");
-cloudinary.config({
-  cloud_name: `${process.env.CLOUD_NAME}`,
-  api_key: `${process.env.API_KEY}`,
-  api_secret: process.env.CLOUDINARY_SECRET,
-});
+const cloudinary = require("../config/cloudinary.config");
 
 //renderiza pg principal lista dos posts
 PostController.renderIndexPage = async (req, res) => {
@@ -18,7 +14,9 @@ PostController.renderIndexPage = async (req, res) => {
 
 //pagina post completo
 PostController.showPost = async (req, res) => {
-  const post = await PostModel.findById(req.params.id);
+  const post = await PostModel.findById(req.params.id)
+    .populate("categoria")
+    .sort({ createdAt: "desc" });
   res.render("posts/show", { post });
 };
 
@@ -31,40 +29,51 @@ PostController.renderListPosts = async (req, res) => {
 };
 
 //renderiza form para cadastro no adm
-PostController.renderFormNewPost = (req, res) => {
-  res.render("posts/new-post", { layout: "adm" });
+PostController.renderFormNewPost = async (req, res) => {
+  const categorias = await Categoria.find({});
+  res.render("posts/new-post", { layout: "adm", categorias: categorias });
 };
 
 //new post
 PostController.createPost = async (req, res, next) => {
-  req.body.images = [];
+  var erros = [];
 
-  for (const file of req.files) {
-    let image = cloudinary.v2.uploader.upload(file.path);
-    req.body.images.push({
-      url: (await image).secure_url,
-      public_id: (await image).public_id,
-    });
+  if (req.body.categoria == "0") {
+    erros.push({ text: "Categoria inválida, registre uma categoria!" });
   }
+  if (erros.length > 0) {
+    res.render("posts/new-post");
+  } else {
+    req.body.images = [];
 
-  const { title, description, content, images } = req.body;
+    for (const file of req.files) {
+      let image = cloudinary.v2.uploader.upload(file.path);
+      req.body.images.push({
+        url: (await image).secure_url,
+        public_id: (await image).public_id,
+      });
+    }
 
-  const newPost = new PostModel({
-    title: title,
-    description: description,
-    content: content,
-    images: images,
-  });
+    const { title, description, content, images, categoria } = req.body;
 
-  await newPost
-    .save()
-    .then(() => {
-      req.flash("success_msg", "Post cadastrado com sucesso!");
-      res.redirect("/posts/list-posts");
-    })
-    .catch((err) => {
-      req.flash("error_msg", "Erro ao salvar a postagem!");
+    const newPost = new PostModel({
+      title: title,
+      description: description,
+      content: content,
+      images: images,
+      categoria: categoria,
     });
+
+    await newPost
+      .save()
+      .then(() => {
+        req.flash("success_msg", "Post cadastrado com sucesso!");
+        res.redirect("/posts/list-posts");
+      })
+      .catch((err) => {
+        req.flash("error_msg", "Erro ao salvar a postagem!");
+      });
+  }
 };
 
 //formulário editar post

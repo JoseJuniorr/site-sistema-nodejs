@@ -10,6 +10,10 @@ const CategoriaSchema = new Schema(
       required: true,
     },
     slug: { type: String, slug: "title" },
+    created_by: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Users",
+    },
   },
   {
     timestamps: true,

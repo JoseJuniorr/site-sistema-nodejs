@@ -23,6 +23,11 @@ const PostSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Users",
     },
+    categoria: {
+      type: Schema.Types.ObjectId,
+      ref: "Categorias",
+      required: true,
+    },
   },
   {
     timestamps: true,

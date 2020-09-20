@@ -56,5 +56,10 @@ format date moment js
 
 ### npm install moment --save
 
+slugs da url
 
 ### npm install mongoose-url-slugs
+
+envio de email
+
+### npm install --save nodemailer

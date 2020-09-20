@@ -1,21 +1,19 @@
-const { request } = require("express");
-
 const ADMIN_PROFILE = "2";
 
 function isAdmin(profile) {
   return profile === ADMIN_PROFILE;
 }
 
-module.exports = (request) => {
-  const user = request.user;
+module.exports = (req) => {
+  const user = req.user;
   if (!user) return false;
 
   const profile = user.profile;
-  const originalUrl = request.originalUrl;
-  const method = request.method; //GET, POST, EDIT
+  const originalUrl = req.originalUrl;
+  const method = req.method; //GET, POST, EDIT
 
-//   switch (originalUrl) {
-//     case "/":
-//       return true;
-//   }
+  //   switch (originalUrl) {
+  //     case "/":
+  //       return true;
+  //   }
 };

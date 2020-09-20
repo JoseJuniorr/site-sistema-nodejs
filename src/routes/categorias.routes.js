@@ -8,7 +8,7 @@ const {
   renderFormEditCategoria,
 } = require("../controllers/CategoriasController");
 
-const { isAuthenticated } = require("../helpers/authenticate");
+const { isAuthenticated } = require("../helpers/isAuthenticated");
 
 //render lista de categorias no adm
 router.get("/list-categorias", isAuthenticated, renderListCategorias);

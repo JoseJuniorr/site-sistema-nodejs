@@ -1,16 +1,9 @@
 const UserController = {};
 
 const passport = require("passport");
+const User = require("../models/User");
 
-// UserController.renderRegisterForm = (req, res) => {
-//   res.render("users/register", { layout: "login" });
-// };
-
-// UserController.register = (req, res) => {
-//   const errors = [];
-
-//   const { name, email, password, confirm_password } = req.body;
-// };
+const { generateRandomPassword } = require("../utils/generateRandomPassword");
 
 UserController.renderLoginForm = (req, res) => {
   res.render("users/login", { layout: "login" });

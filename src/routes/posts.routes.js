@@ -4,7 +4,7 @@ const router = Router();
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 
-const { isAuthenticated } = require("../helpers/authenticate");
+const { isAuthenticated } = require("../helpers/isAuthenticated");
 
 const {
   renderIndexPage,
