@@ -16,6 +16,7 @@ PostController.renderIndexPage = async (req, res) => {
 PostController.showPost = async (req, res) => {
   const post = await PostModel.findById(req.params.id)
     .populate("categoria")
+    .populate("author")
     .sort({ createdAt: "desc" });
   res.render("posts/show", { post });
 };
@@ -54,6 +55,8 @@ PostController.createPost = async (req, res, next) => {
       });
     }
 
+    const author = req.user._id;
+
     const { title, description, content, images, categoria } = req.body;
 
     const newPost = new PostModel({
@@ -62,10 +65,12 @@ PostController.createPost = async (req, res, next) => {
       content: content,
       images: images,
       categoria: categoria,
+      author: author,
     });
 
     await newPost
       .save()
+
       .then(() => {
         req.flash("success_msg", "Post cadastrado com sucesso!");
         res.redirect("/posts/list-posts");

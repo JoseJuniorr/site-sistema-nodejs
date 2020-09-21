@@ -20,6 +20,25 @@ CarouselHome.renderNewCarousel = (req, res) => {
 };
 
 //salvar as informações do banner no banco e cloudinary
-CarouselHome.createBannerCarousel = (req, res) => {};
+CarouselHome.createBannerCarousel = async (req, res) => {
+  
+  const { title, link } = req.body;
+
+  const newBanner = new CarouselModel({
+    title: title,
+    link: link,
+   
+  });
+
+  await newBanner
+    .save()
+    .then(() => {
+      req.flash("success_msg", "Banner cadastrado com sucesso!");
+      res.redirect("/banner/list-carouselHome");
+    })
+    .catch((err) => {
+      req.flash("error_msg", "Erro ao salvar o banner!");
+    });
+};
 
 module.exports = CarouselHome;

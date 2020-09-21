@@ -1,14 +1,14 @@
 <div class="container p-5 ">
     <h1>{{post.title}}</h1>
 
-     {{{post.description}}}
+    {{{post.description}}}
 
     {{{post.content}}}
 
 
 
     <div id="carouselPost" class="carousel slide " data-ride="carousel">
-    
+
         <div class="carousel-inner">
             {{#each post.images}}
             {{#if @first}}
@@ -48,7 +48,8 @@
     <div class="mt-3">
         <span>Atualizado em: <strong>{{formatDate post.updatedAt}}</strong> </span><br>
         <span>Criado em: <strong>{{formatDate post.createdAt}}</strong> </span><br>
-        <span>Categoria: <strong>{{post.categoria.title}}</strong> </span>
+        <span>Categoria: <strong>{{post.categoria.title}}</strong> </span><br>
+        <span>Author: <strong>{{post.author.name}}</strong> </span>
 
     </div>
 
