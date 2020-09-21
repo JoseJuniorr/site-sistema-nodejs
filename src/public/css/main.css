@@ -1,10 +1,10 @@
-body {
-  background: rgba(255, 255, 255, 0.993);
-  margin-top: 4rem;
-}
+body,
+html {
+  /* background: rgba(231, 245, 255, 0.993); */
+  margin-top: 2em;
 
-a:hover {
-  text-decoration: underline;
+  background-image: linear-gradient(to top, #ffffff 0%, #f0fbff 100%);
+ 
 }
 
 /* Icon 1 */
@@ -233,4 +233,23 @@ a:hover {
     width: 0%;
     margin-right: 10px;
   }
+}
+
+.bg {
+  /* The image used */
+  background-image: url("/images/sobre/colegio-militar.jpg");
+
+  /* Half height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.text-columns {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2; /* padrão */
+  padding: 10%;
 }

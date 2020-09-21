@@ -89,6 +89,7 @@ app.use(require("./routes/home.routes"));
 app.use(require("./routes/carouselHome.routes"));
 
 app.use(require("./routes/sobre.routes"));
+app.use(require("./routes/ensinoPage"));
 app.use(require("./routes/contato.routes"));
 
 app.use("/posts", require("./routes/posts.routes"));
