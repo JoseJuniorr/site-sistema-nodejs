@@ -86,7 +86,7 @@ app.use((req, res, next) => {
 //Rotas
 // app.use(require("./routes/add_bd.routes"));
 app.use(require("./routes/home.routes"));
-app.use(require("./routes/carouselHome.routes"));
+app.use("/banner", require("./routes/carouselHome.routes"));
 
 app.use(require("./routes/sobre.routes"));
 app.use(require("./routes/ensinoPage"));

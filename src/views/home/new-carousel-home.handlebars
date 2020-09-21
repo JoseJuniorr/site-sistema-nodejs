@@ -1,0 +1,62 @@
+<div class="content p-1">
+    <div class="list-group-item">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <h2 class="display-4 titulo">Novo Banner</h2>
+                {{>_msg}}
+                {{>_errors}}
+            </div>
+            <a href="/banner/list-carousel">
+                <div class="p-2">
+                    <button class="btn btn-outline-primary ">
+                        Listar
+                    </button>
+                </div>
+            </a>
+        </div>
+        <hr>
+        <form action="#t" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group col-md-6">
+                <label><span class="text-danger">*</span> Título</label>
+                <input name="title" type="text" class="form-control" id="title" placeholder="Título da postagem">
+            </div>
+
+
+            <div class="form-group col-md-6">
+                <label><span class="text-danger">*</span> Título</label>
+                <input name="title" type="text" class="form-control" id="title" placeholder="Título da postagem">
+            </div>
+
+            <div class="input-group col-md-6 mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" accept="image/*" name="image">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="input-group col-md-6 mb-3">
+                <label><span class="text-danger">*</span>Categoria </label>
+                <select name="categoria" id="" class="browser-default custom-select">
+
+                  <option value="">item</option>
+                </select>
+            </div>
+
+            <p>
+                <span class="text-danger">* </span>Campo obrigatório
+            </p>
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</div>
+</div>

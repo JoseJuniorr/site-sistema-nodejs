@@ -1,26 +1,14 @@
-<div class="container p-5">
+<div class="container p-5 ">
     <h1>{{post.title}}</h1>
 
-    <p class="lead"> {{post.description}}</p>
+     {{{post.description}}}
 
-    {{post.content}}
+    {{{post.content}}}
 
-    {{!-- <div class="mt-4">
-        {{#each post.images}}
-        <img src="{{this.url}}" alt="post image" class="img-fluid box-shadow-5 mb-5">
 
-        {{/each}}
 
-    </div> --}}
-    <style>
-        .carousel-image {
-
-            max-height: 580px;
-
-        }
-    </style>
-
-    <div id="carouselPost" class="carousel slide overflow-hidden" data-ride="carousel">
+    <div id="carouselPost" class="carousel slide " data-ride="carousel">
+    
         <div class="carousel-inner">
             {{#each post.images}}
             {{#if @first}}
@@ -46,6 +34,9 @@
 
         </div>
     </div>
+
+
+
 
     <script>
         $('.carousel').carousel({
