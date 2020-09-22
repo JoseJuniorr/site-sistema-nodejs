@@ -20,6 +20,6 @@ const CategoriaSchema = new Schema(
   }
 );
 
-CategoriaSchema.plugin(slug("title"));
+CategoriaSchema.plugin(slug("title", { update: true }));
 
 module.exports = mongoose.model("Categorias", CategoriaSchema);

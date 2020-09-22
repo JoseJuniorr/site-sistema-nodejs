@@ -49,7 +49,6 @@ CategoriasController.updateCategoria = async (req, res) => {
   const newCategoria = await Categoria.findById(req.params.id);
 
   newCategoria.title = req.body.title;
-  newCategoria.slug = req.body.slug;
 
   newCategoria
     .save()

@@ -34,6 +34,6 @@ const PostSchema = new Schema(
   }
 );
 
-PostSchema.plugin(slug("title"));
+PostSchema.plugin(slug("title", { update: true }));
 
 module.exports = mongoose.model("Posts", PostSchema);
