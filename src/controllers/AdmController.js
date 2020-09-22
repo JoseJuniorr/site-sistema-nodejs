@@ -44,13 +44,15 @@ AdmController.registerUsers = async (req, res) => {
       const newUser = new User({ name, email, password });
       newUser.password = await newUser.encryptPassword(password);
       await newUser.save();
-      var text = "Cadastro realizado {name}, sua senha é {password}!";
+      var text =
+        "Olá {name}, você foi cadastrado no sistema adm do site CVM Unicampo, para acessar basta usar o seu email: {email} e sua senha: {password}, guarde este email para consulta.";
       text = text
         .replace("{name}", req.body.name)
-        .replace("{password}", req.body.password);
+        .replace("{password}", req.body.password)
+        .replace("{email}", req.body.email);
       require("../mail")(
         req.body.email,
-        "Cadastro realizado com sucesso!",
+        "Site CVM Unicampo - Cadastro realizado com sucesso!",
         text
       );
       req.flash("success_msg", "Usuário cadastrado com sucesso!");
