@@ -6,6 +6,7 @@ const {
   renderFormAddCategorias,
   createCategoria,
   renderFormEditCategoria,
+  updateCategoria,
 } = require("../controllers/CategoriasController");
 
 const { isAuthenticated } = require("../helpers/isAuthenticated");
@@ -18,5 +19,7 @@ router.get("/add-categorias", isAuthenticated, renderFormAddCategorias);
 router.post("/create-categoria", isAuthenticated, createCategoria);
 
 router.get("/edit-categoria/:id", isAuthenticated, renderFormEditCategoria);
+
+router.put("/update-categoria/:id", isAuthenticated, updateCategoria);
 
 module.exports = router;

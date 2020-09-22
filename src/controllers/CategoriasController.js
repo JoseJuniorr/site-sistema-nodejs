@@ -45,4 +45,22 @@ CategoriasController.renderFormEditCategoria = async (req, res) => {
   });
 };
 
+CategoriasController.updateCategoria = async (req, res) => {
+  const newCategoria = await Categoria.findById(req.params.id);
+
+  newCategoria.title = req.body.title;
+  newCategoria.slug = req.body.slug;
+
+  newCategoria
+    .save()
+    .then(() => {
+      req.flash("success_msg", "Categoria editada com sucesso!");
+      res.redirect("/categorias/list-categorias");
+    })
+    .catch((err) => {
+      req.flash("error_msg", "Erro ao editar a nota!");
+      res.redirect("/categorias/list-categorias");
+    });
+};
+
 module.exports = CategoriasController;
