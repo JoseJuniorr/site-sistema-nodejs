@@ -125,6 +125,7 @@ PostController.updatePost = async (req, res) => {
   post.title = req.body.title;
   post.description = req.body.description;
   post.content = req.body.content;
+  post.slug = req.body.slug;
   // const { title, description, content } = req.body;
 
   //save the updated post into the db
