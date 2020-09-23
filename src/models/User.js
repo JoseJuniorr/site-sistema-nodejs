@@ -11,9 +11,13 @@ const UserSchema = new Schema(
       type: String,
       required: true,
       unique: true,
-      trim: true
+      trim: true,
     },
     password: {
+      type: String,
+      required: true,
+    },
+    profile: {
       type: String,
       required: true,
     },
@@ -31,7 +35,5 @@ UserSchema.methods.encryptPassword = async (password) => {
 UserSchema.methods.matchPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
-
-
 
 module.exports = model("Users", UserSchema);
