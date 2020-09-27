@@ -182,6 +182,41 @@ html {
   left: 8px;
 }
 
+
+/* Frozza */
+/* home */
+.area-diferenciais-icons h3, .area-galeria h3{color: #1a1849; font-weight: bold;}
+.area-diferenciais-row {margin-top: 5rem;}
+.area-diferenciais-img, .area-diferenciais-label {text-align: center;}
+.area-diferenciais-img {background-color: #fff; background-size: cover; border-radius: 2em 2em 0em 0em; height: 10em;}
+.area-diferenciais-img img {width: 75%}
+.area-diferenciais-label {background-color: #1a1849; color: #fff; border-radius: 0em 0em 2em 2em; height: 3em;}
+.area-diferenciais-label span {padding: 0.3em; font-weight: bold;}
+.area-diferenciais-icons {margin-top: 2em;}
+.area-matricula{background-color: #4b50b7;}
+.area-matricula h3{color: #fff; font-weight: bold;}
+.area-matricula .col-md-6{text-align: center; font-weight: bold; color: #fff;}
+.area-matricula .col-md-6 button{border-radius: 1rem; font-weight: bold;}
+.area-matricula .area-horarios{background-color: #13acec; border-radius: 1rem; padding: 1rem;}
+
+
+/* sobre */
+.area-sobre {margin-top: 3rem; margin-bottom: 3rem; font-size: 14px;}
+.area-sobre-home h1, .area-sobre h4{color: #13acec; font-weight: bold;}
+.area-sobre .col-md-6{padding: 2rem;}
+.area-sobre .area-imagem-sobre{background-color: #1a1849;  border-radius: 1rem; height: 18rem;}
+
+/* ensino */
+.area-ensino-home h1 {color: #13acec; font-weight: bold;}
+.area-ensino-apre h3, .area-ensino-matriz h3, .area-ensino-sistema h3 , .area-ensino-professor h3 {color: #1a1849; font-weight: bold;}
+.area-ensino-apre img{width: 100%;}
+.area-ensino-apre .text-columns, .area-ensino-sistema .text-columns {margin-top: -5rem;}
+.area-ensino-matriz p{font-size: 12px;}
+.area-ensino-professor{background-color: #eee;}
+.area-ensino-professor .dif-icon{max-width: 8rem;}
+.area-ensino-professor h5{color: #1a1849; font-weight: bold;}
+.area-ensino-professor p{font-size: 12px;}
+
 /* .custom-navbar {
   background-color: whitesmoke;
   font-weight: 500;
@@ -208,7 +243,9 @@ html {
 
 @media only screen and (min-width: 900px) {
   .card-home {
-    max-width: 16rem;
+    /* Frozza */
+    /* max-width: 16rem; */
+    max-width: 18rem;
     border: none;
     /* padding-right: 1em;
     padding-left: 1em; */

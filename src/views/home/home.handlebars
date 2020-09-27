@@ -10,9 +10,7 @@
 
 {{!-- cards para as paginas de ensino --}}
 <div class="container">
-
     <div class="row  mb-4">
-
         <!-- Grid column -->
         <div class=" col justify-content-end ">
             <!--Card-->
@@ -23,7 +21,6 @@
                     <a href="#">
                         <img src="/images/home/card-1.png" class="card-img-top card-home " alt="photo">
                     </a>
-
                 </div>
             </div>
             <!--/.Card-->
@@ -48,16 +45,44 @@
         </div>
     </div>
 
+    {{!-- cards --}}
+    <div class="area-diferenciais-row row">
+        {{!-- <div class="area-diferenciais-row row"> --}}
+        <div class="col-sm-3">
+            <div class="area-diferenciais-img" style="background-image: url('/images/home/card-2.png');"></div>
+            <div class="area-diferenciais-label">
+                <span>CARTILHA <br/> COVID-19</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="area-diferenciais-img"></div>
+            <div class="area-diferenciais-label">
+                <span>PROJETO ESCOLA <br/> MAIS SEGURA</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="area-diferenciais-img"></div>
+            <div class="area-diferenciais-label">
+                <span>ESCOLA, FAMÍLIA E <br/> RESULTADOS</span>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="area-diferenciais-img"></div>
+            <div class="area-diferenciais-label">
+                <span>ESCOLA, FAMÍLIA E <br/> RESULTADOS</span>
+            </div>
+        </div>
+                {{!-- </div> --}}
+    </div>
+
+
 
 </div>
 
 {{!-- Diferenciais --}}
-<div class="jumbotron">
-
-
-
+<div class="jumbotron area-diferenciais-icons">
     <div class="container">
-        <h4 class="text-center  p-2 rounded-pill mb-5 ">Diferenciais</h4>
+        <h3 class="text-center p-2 rounded-pill mb-5 ">Diferenciais</h3>
         <div class="row">
             <!-- Grid column -->
             <div class="col-md-6 mt-md-0 mt-3">
@@ -70,17 +95,11 @@
                         </h6>
                         <p>Disciplina ministrada em sala de aula com princípios militares implantados na vida civil.</p>
                     </div>
-
                 </div>
-
-                <!-- Content -->
-
-
             </div>
             <!-- Grid column -->
             <!-- Grid column -->
             <div class="col-md-6 mt-md-0 mt-3">
-
                 <!-- Content -->
                 <div class="d-flex">
                     <img src="/images/home/icons/civico-militar-icon.png" alt="teste" class="dif-icon">
@@ -91,18 +110,12 @@
                         </h6>
                         <p>Disciplina ministrada em sala de aula com princípios militares implantados na vida civil.</p>
                     </div>
-
                 </div>
                 <!-- Grid column -->
             </div>
-
-
-
         </div>
-
         <div class="row mt-5">
             <div class="col-md-6 mt-md-0 mt-3">
-
                 <div class="d-flex">
                     <img src="/images/home/icons/civico-militar-icon.png" alt="teste" class="dif-icon">
                     <div>
@@ -113,17 +126,11 @@
                             atualizados de acordo com os vestibulares
                         </p>
                     </div>
-
                 </div>
-
-                <!-- Content -->
-
-
             </div>
             <!-- Grid column -->
             <!-- Grid column -->
             <div class="col-md-6 mt-md-0 mt-3">
-
                 <!-- Content -->
                 <div class="d-flex">
                     <img src="/images/home/icons/civico-militar-icon.png" alt="teste" class="dif-icon">
@@ -140,3 +147,72 @@
         </div>
 
     </div>
+</div>
+
+{{!-- Galeria de fotos --}}
+<div class="container area-galeria">
+    <h3 class="text-center p-2 rounded-pill mb-5 ">Galeria de Fotos</h3>
+    <div id="carouselPost" class="carousel slide " data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-image carousel-item active">
+                <img class="d-block w-100" src="/images/home/fotos-galeria.png">
+            </div>
+            <div class="carousel-image carousel-item">
+                <img class="d-block w-100" src="/images/home/fotos-galeria.png">
+            </div>
+            <a class="carousel-control-prev" href="#carouselPost" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselPost" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        $('.carousel').carousel({
+            interval: 4000,
+            pause: "false",
+            wrap: false
+        });
+    </script>
+</div>
+
+
+{{!-- Matriculas --}}
+<div class="jumbotron area-matricula">
+    <div class="container">
+        <h3 class="text-center  p-2 rounded-pill mb-5 ">Matriculas</h3>
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3 ">
+                <p>
+                    Senhores pais e resposnsáveis!</br>
+                    </br>
+                    Sejam bem-vindos ao</br>
+                    CVM UNICAMPO</br>
+                    </br>
+                    Obrigada por confiarem na</br>
+                    proposta da associação da</br>
+                    Vila Militar
+                </p>
+                <button type="button" class="btn btn-warning">Pré-inscrições Clique Aqui!</button>
+            </div>
+            <div class="col-md-6 mt-md-0 mt-3 area-horarios">
+                 <p>
+                    Para evitar filas, agende</br>
+                    a data e horário de sua conveniência</br>
+                    </br>
+                    dcom@faculdadeunicampo.edu,br</br>
+                    </br>
+                    0800 600-5059 | 44 3016-7100</br>
+                    Whatsapp 44 99748-0880</br>
+                    </br>
+                    08h às 18h, de segunda a sexta-feira
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
